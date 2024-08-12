@@ -1,20 +1,28 @@
+//Herencia prototipica
 
-const datos2 = []
-
-const getDatos2= () =>{
-    return new Promise((resolve, reject)=>{
-        if(datos2.length === 0){
-            reject(new Error("No existen datos"));
-        }
-        
-        setTimeout(()=>{
-            resolve(datos2)
-        },1000)
-    })
+function Animal(pelo, ojos){
+    this.pelo = pelo;
+    this.ojos = ojos
+}
+//Agregamos métodos al prototipo
+Animal.prototype.caminar = function (){
+    console.log("Estoy caminando")
 }
 
-getDatos2().then((datos)=>{
-    console.log(datos, "Recibidos")
-}).catch((err)=>{
-    console.log(err.message)
-})
+function Perro(apodo, pelo, ojos){
+    //Animal(pelo, ojos)
+    Animal.call(this, pelo, ojos)
+    this.apodo = apodo
+}
+//Unimos el prototipo del perro al de animal
+Perro.prototype = Object.create(Animal.prototype)
+//Asignamos el constructor de perro
+Perro.prototype.constructor = Perro;
+
+//Agregamos el método al protipo al perro
+Perro.prototype.ladrar = function(){
+    console.log("Estoy ladrando");
+}
+//Creamos objetos de tipo animal y perro
+const animal  = new Animal("claro", "negros")
+const perro = new Perro("max", "oscuro", "beige")

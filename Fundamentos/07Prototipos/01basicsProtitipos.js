@@ -35,14 +35,3 @@ elena.edad= 19;
 let cadena = "hola que tal"
 
 //cadena.length
-
-const datos = {
-    nombre: "Alejandro",
-    edad: 18
-};
-
-const getDatos= () =>{
-    return new Promise((resolve, reject)={
-        
-    })
-}
