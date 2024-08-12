@@ -4,7 +4,7 @@ async function fetchData() {
     try {
       const data = await new Promise((resolve, reject) => {
         // Simula la obtención de datos
-        const data = "Datos obtenidos";
+        const data = "";
         if (data) {
           resolve(data);
         } else {

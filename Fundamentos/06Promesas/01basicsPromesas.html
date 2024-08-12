@@ -1,0 +1,73 @@
+//Conceptos básicos de las promesas
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Conceptos básicos
+        //Tenemos un objeto (diccionario)
+        
+        const datos = {
+            nombre: "Alejandro",
+            edad: 29
+        }
+        
+        const getDatos = () => {
+            return datos
+        }
+        //Llamada a la función síncrona
+        getDatos();
+
+        const datosBBDD = {
+            nombre: "Alejandro",
+            edad: 29
+        }
+        //Manejo de respuestas mediante promesas
+        
+        const llamarBBDD = () => {
+            //Debemos retornar una promesa con el objeto promesa
+            return new Promise((resolve, reject) =>{
+                
+                setTimeout(()=>{
+                    //return datosBBDD
+                    resolve(datosBBDD)
+                },2000)
+            })
+        }
+        //Manejamos los resultados devueltos mediante el .then
+        llamarBBDD().then((datosObtenidos) =>{
+            console.log(datosObtenidos)
+        })
+        //Tenemos una nueva función que recibe los datos
+        llamarBBDD().then((datosObtenidos) =>{
+            console.log("Segunda función que recibe datos",datosObtenidos)
+        })
+
+        //Manejo de async y await
+        async function devolverDatos(mensaje){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    resolve(mensaje)
+                },2000)
+            });
+        }
+
+        //Función que solicita los datos
+
+        async function main(){
+            const mensaje = await devolverDatos("hola que tal");
+            console.log(mensaje);
+        }
+
+        main()
+
+
+    </script>
+</body>
+</html>
+
