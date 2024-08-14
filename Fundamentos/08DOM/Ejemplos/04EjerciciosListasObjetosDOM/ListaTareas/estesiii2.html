@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mostrar elementos de lista</title>
+</head>
+<body>
+
+<h1>Lista de elementos</h1>
+
+<ul id="lista_desordenada"></ul>
+<button onclick="mostrarSiguienteElemento()">Mostrar siguiente elemento</button>
+
+<script>
+// Lista de elementos en JavaScript
+const elementos = ["Manzana", "Banana", "Cereza", "Fresa", "Mango"];
+
+// Obtener el elemento <ul>
+const listaDesordenada = document.getElementById("lista_desordenada");
+
+// Índice del elemento actual
+let indiceActual = 0;
+
+// Función para mostrar el siguiente elemento
+function mostrarSiguienteElemento() {
+  if (indiceActual < elementos.length) {
+    // Crear un nuevo elemento <li>
+    const item = document.createElement("li");
+    // Agregar el texto del elemento
+    item.textContent = elementos[indiceActual];
+    // Agregar el elemento <li> a la lista
+    listaDesordenada.appendChild(item);
+    // Incrementar el índice
+    indiceActual++;
+  } else {
+    // Mostrar un mensaje si no hay más elementos
+    alert("No hay más elementos en la lista");
+  }
+}
+</script>
+
+</body>
+</html>

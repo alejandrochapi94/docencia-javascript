@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mostrar elementos de lista</title>
+</head>
+<body>
+
+<h1>Lista de elementos</h1>
+
+<ul id="lista_desordenada"></ul>
+
+<script>
+// Lista de elementos en JavaScript
+const elementos = ["Manzana", "Banana", "Cereza", "Fresa", "Mango"];
+
+// Obtener el elemento <ul>
+const listaDesordenada = document.getElementById("lista_desordenada");
+
+// Mostrar elementos en la lista
+for (let i = 0; i < elementos.length; i++) {
+  // Crear un nuevo elemento <li>
+  const item = document.createElement("li");
+  // Agregar el texto del elemento
+  item.textContent = elementos[i];
+  // Agregar el elemento <li> a la lista
+  listaDesordenada.appendChild(item);
+}
+</script>
+
+</body>
+</html>

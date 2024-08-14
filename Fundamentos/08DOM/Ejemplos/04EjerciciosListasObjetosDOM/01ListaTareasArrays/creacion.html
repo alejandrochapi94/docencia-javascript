@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crear Elemento LI con Botón</title>
+</head>
+<body>
+  <ul id="miLista"></ul>
+  <button id="agregarBtn">Agregar Item</button>
+
+  <script>
+    // Obtener referencias a los elementos del DOM
+    const miLista = document.getElementById("miLista");
+    const agregarBtn = document.getElementById("agregarBtn");
+
+    // Función para agregar un nuevo item a la lista
+    function agregarItem() {
+      // Crear un nuevo elemento <li>
+      const nuevoItem = document.createElement("li");
+
+      // Asignar texto al elemento <li>
+      nuevoItem.textContent = "Nuevo item en la lista";
+
+      // Agregar el nuevo item a la lista
+      miLista.appendChild(nuevoItem);
+    }
+
+    // Agregar un evento "click" al botón
+    agregarBtn.addEventListener("click", agregarItem);
+  </script>
+</body>
+</html>

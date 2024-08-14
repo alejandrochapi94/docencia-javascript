@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Descuento</title>
+</head>
+<body>
+    <input type="number" id="precio" placeholder="Precio Original">
+    <input type="number" id="descuento" placeholder="Descuento (%)">
+    <button id="calcular">Calcular Precio Final</button>
+    <p id="resultado"></p>
+
+    <script>
+        const precioInput = document.getElementById("precio");
+        const descuentoInput = document.getElementById("descuento");
+        const resultadoParrafo = document.getElementById("resultado");
+
+        function calcularPrecioFinal(precio, descuento) {
+            const descuentoValor = precio * (descuento / 100);
+            return precio - descuentoValor;
+        }
+
+        document.getElementById("calcular").addEventListener("click", function() {
+            const precio = parseFloat(precioInput.value);
+            const descuento = parseFloat(descuentoInput.value);
+            resultadoParrafo.textContent = `El precio final es: ${calcularPrecioFinal(precio, descuento)}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Ejemplo 1: Cambiar el texto de un párrafo al hacer clic en un botón
+
+<p id="textParagraph">Este es el texto original.</p>
+<button id="changeTextButton">Cambiar Texto</button>
+
+<script>
+  document.getElementById('changeTextButton').addEventListener('click', function() {
+    // Cambiar el texto del párrafo
+    document.getElementById('textParagraph').textContent = 'El texto ha sido cambiado!';
+  });
+</script>

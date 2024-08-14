@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #lista-compras ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #lista-compras li {
+            margin-bottom: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Compras</h1>
+
+    <input type="text" id="item-input" placeholder="Agrega un item...">
+    <button id="agregar-btn">Agregar</button>
+
+    <div id="lista-compras">
+        <ul></ul>
+    </div>
+
+    <script>
+        // Obtener referencias a los elementos del DOM
+        const inputItem = document.getElementById("item-input");
+        const agregarBtn = document.getElementById("agregar-btn");
+        const listaCompras = document.querySelector("#lista-compras ul");
+
+        // Agregar un evento "click" al botón "Agregar"
+        agregarBtn.addEventListener("click", () => {
+            // Obtener el valor del campo de texto
+            const newItem = inputItem.value;
+
+            // Si el campo de texto no está vacío
+            if (newItem !== "") {
+                // Crear un nuevo elemento "li" para el item
+                const nuevoItem = document.createElement("li");
+                nuevoItem.textContent = newItem;
+
+                // Agregar un botón "Eliminar" al item
+                const btnEliminar = document.createElement("button");
+                btnEliminar.textContent = "Eliminar";
+                btnEliminar.addEventListener("click", () => {
+                    // Eliminar el item de la lista
+                    listaCompras.removeChild(nuevoItem);
+                });
+                //nuevoItem.appendChild(btnEliminar);
+
+                // Agregar el nuevo item a la lista
+                listaCompras.appendChild(nuevoItem);
+
+                // Limpiar el campo de texto
+                inputItem.value = "";
+            }
+        });
+    </script>
+</body>
+</html>

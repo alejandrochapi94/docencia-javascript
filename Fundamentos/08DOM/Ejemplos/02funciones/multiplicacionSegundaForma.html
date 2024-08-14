@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplicar dos números</title>
+</head>
+<body>
+    <input type="number" id="number1" placeholder="Ingresa el primer número">
+    <input type="number" id="number2" placeholder="Ingresa el segundo número">
+    <button id="multiplyButton">Multiplicar</button>
+    <p id="multiplyResult"></p>
+
+    <script>
+        // Función para multiplicar dos números
+        function multiplyNumbers(num1, num2) {
+            return num1 * num2;
+        }
+
+        document.getElementById('multiplyButton').addEventListener('click', function() {
+            // Obtener los valores de los inputs
+            let num1 = parseFloat(document.getElementById('number1').value);
+            let num2 = parseFloat(document.getElementById('number2').value);
+            
+            // Llamar a la función de multiplicación
+            let result = multiplyNumbers(num1, num2);
+            
+            // Mostrar el resultado en el DOM
+            document.getElementById('multiplyResult').textContent = 'Resultado: ' + result;
+        });
+    </script>
+</body>
+</html>

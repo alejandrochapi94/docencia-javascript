@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedir Datos desde HTML</title>
+</head>
+<body>
+    <h1>Pedir Datos desde HTML</h1>
+    <input type="number" id="numero1" placeholder="Ingresa el primer número">
+    <input type="number" id="numero2" placeholder="Ingresa el segundo número">
+    <button onclick="compararNumeros()">Comparar</button>
+    <p id="resultado"></p>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script>
+        function compararNumeros() {
+    // Obtener los valores de los inputs
+    const numero1 = parseFloat(document.getElementById('numero1').value);
+    const numero2 = parseFloat(document.getElementById('numero2').value);
+
+    // Verificar cuál número es mayor
+    let mensaje;
+    if (numero1 > numero2) {
+        mensaje = `El número ${numero1} es mayor que ${numero2}`;
+    } else if (numero1 < numero2) {
+        mensaje = `El número ${numero2} es mayor que ${numero1}`;
+    } else {
+        mensaje = `Ambos números son iguales (${numero1})`;
+    }
+
+    // Mostrar el resultado
+    document.getElementById('resultado').innerText = mensaje;
+}
+
+    </script>
+</body>
+</html>

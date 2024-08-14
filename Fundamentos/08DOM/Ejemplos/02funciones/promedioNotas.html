@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promedio de Notas</title>
+</head>
+<body>
+    <input type="number" id="numNotas" placeholder="Número de Notas">
+    <button id="agregarNotas">Agregar Notas</button>
+    <button id="calcularPromedio">Calcular Promedio</button>
+    <p id="resultado"></p>
+
+    <script>
+        const numNotasInput = document.getElementById("numNotas");
+        const agregarNotasButton = document.getElementById("agregarNotas");
+        const calcularPromedioButton = document.getElementById("calcularPromedio");
+        const resultadoParrafo = document.getElementById("resultado");
+        const contenedorNotas = document.createElement("div"); // Contenedor para las notas
+
+        function calcularPromedio(notas) {
+            let suma = 0;
+            for (let i = 0; i < notas.length; i++) {
+                suma += parseFloat(notas[i]);
+            }
+            return suma / notas.length;
+        }
+
+        agregarNotasButton.addEventListener("click", function() {
+            const numNotas = parseInt(numNotasInput.value);
+            contenedorNotas.innerHTML = ""; // Limpiar contenedor si se agrega nuevo conjunto de notas
+            for (let i = 0; i < numNotas; i++) {
+                const inputNota = document.createElement("input");
+                inputNota.type = "number";
+                inputNota.placeholder = `Nota ${i + 1}`;
+                contenedorNotas.appendChild(inputNota);
+            }
+            document.body.insertBefore(contenedorNotas, calcularPromedioButton); // Agregar contenedor antes del botón de calcular
+        });
+
+        calcularPromedioButton.addEventListener("click", function() {
+            const notas = [];
+            const inputsNotas = contenedorNotas.querySelectorAll("input"); // Obtener todas las entradas de notas
+            for (let i = 0; i < inputsNotas.length; i++) {
+                notas.push(inputsNotas[i].value);
+            }
+            const promedio = calcularPromedio(notas);
+            resultadoParrafo.textContent = `El promedio es: ${promedio}`;
+        });
+    </script>
+</body>
+</html>

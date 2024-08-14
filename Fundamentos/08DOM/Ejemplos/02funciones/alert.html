@@ -1,0 +1,16 @@
+<input type="number" id="numberInput">
+<button id="calculateButton">Calcular</button>
+<input type="text" id="resultTextbox" readonly>
+
+<script>
+  document.getElementById('calculateButton').addEventListener('click', function() {
+    // Obtener el valor del input
+    let number = document.getElementById('numberInput').value;
+    // Convertir a número y realizar operación
+    let result = number * 2;
+    // Mostrar resultado en el textbox
+    document.getElementById('resultTextbox').value = 'Resultado: ' + result;
+    // Mostrar mensaje de éxito
+    alert('La operación se realizó exitosamente');
+  });
+</script>

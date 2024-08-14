@@ -1,2 +1,0 @@
-# Manejo básico del DOM
-

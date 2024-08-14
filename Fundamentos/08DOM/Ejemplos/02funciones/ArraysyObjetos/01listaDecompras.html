@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Compras</title>
+</head>
+<body>
+    <h1>Lista de Compras</h1>
+    <input type="text" id="itemInput" placeholder="Ingresa un artículo">
+    <button id="addItemButton">Agregar</button>
+    <button id="clearListButton">Borrar Lista</button>
+    <ul id="shoppingList"></ul>
+
+    <script>
+
+        // Array para almacenar los artículos de la lista de compras
+let shoppingList = [];
+
+// Función para agregar un artículo a la lista
+function addItem(item) {
+    if (item) {
+        shoppingList.push(item);
+        updateDOM();
+    }
+}
+
+// Función para borrar toda la lista de compras
+function clearList() {
+    shoppingList = [];
+    updateDOM();
+}
+
+// Función para actualizar el DOM con la lista de compras
+function updateDOM() {
+    const listElement = document.getElementById('shoppingList');
+    listElement.innerHTML = '';  // Limpiar el contenido actual
+    shoppingList.forEach(function(item) {
+        const li = document.createElement('li');
+        li.textContent = item;
+        listElement.appendChild(li);
+    });
+}
+
+// Evento para agregar un artículo al hacer clic en "Agregar"
+document.getElementById('addItemButton').addEventListener('click', function() {
+    const item = document.getElementById('itemInput').value;
+    addItem(item);
+    document.getElementById('itemInput').value = '';  // Limpiar el input
+});
+
+// Evento para borrar toda la lista al hacer clic en "Borrar Lista"
+document.getElementById('clearListButton').addEventListener('click', clearList);
+
+    </script>
+</body>
+</html>
