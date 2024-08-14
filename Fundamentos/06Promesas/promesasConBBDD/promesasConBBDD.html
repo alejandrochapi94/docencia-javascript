@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Conexión con la base de datos
+        const mysql = require('mysql2/promise');
+
+        async function obtenerDatos() {
+        try {
+            const connection = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'root',
+            database: 'myDb'
+            });
+
+            const [results] = await connection.query('SELECT * FROM tu_tabla');
+            connection.end();
+            return results;
+        } catch (err) {
+            console.error('Error conectando a la base de datos o ejecutando la consulta:', err);
+            throw err;
+        }
+        }
+
+        async function main() {
+        try {
+            const resultadosConsulta = await obtenerDatos();
+            console.log('Resultados obtenidos:', resultadosConsulta);
+            // Aquí puedes usar resultadosConsulta fuera del query
+        } catch (err) {
+            console.error('Error:', err);
+        }
+        }
+
+        main();
+
+
+
+
+
+    </script>
+    
+
+</body>
+</html>
