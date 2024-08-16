@@ -29,4 +29,4 @@ async function insertarDatos(nombre, correo) {
 }
 
 // Llamar a la función insertarDatos para enviar los datos
-insertarDatos('Alejandro', 'alejandro@example.com');
+insertarDatos('Alejandro11', 'alejandro1@example.com');
