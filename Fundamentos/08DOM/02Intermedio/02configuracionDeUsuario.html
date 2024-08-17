@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Configuración de Perfil</title>
+  
+</head>
+<body>
+
+  <h2>Configuración de Perfil</h2>
+
+  <form id="formPerfil" onsubmit="return false;">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" value="Tu Nombre"><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" value="tu_email@example.com"><br>
+
+    <label for="password">Contraseña:</label><br>
+    <input type="password" id="password" name="password"><br>
+
+    <fieldset>
+      <legend>Género:</legend>
+      <input type="radio" id="masculino" name="genero" value="masculino">
+      <label for="masculino">Masculino</label>
+      <input type="radio" id="femenino" name="genero" value="femenino">
+      <label for="femenino">Femenino</label>
+      <input type="radio" id="otro" name="genero" value="otro">
+      <label for="otro">Otro</label>
+    </fieldset>
+
+    <input type="checkbox" id="notificaciones" name="notificaciones">
+    <label for="notificaciones">Recibir notificaciones</label><br><br>
+
+    <input type="submit" value="Guardar Cambios">
+  </form>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const genero = document.querySelector('input[name="genero"]:checked').value;
+      const notificaciones = document.getElementById("notificaciones").checked;
+
+      // Mostrar los datos en la consola (para debugging)
+      console.log("Nombre:", nombre);
+      console.log("Email:", email);
+      console.log("Contraseña:", password);
+      console.log("Género:", genero);
+      console.log("Notificaciones:", notificaciones);
+
+      // Puedes realizar más acciones con los datos aquí, 
+      // como guardarlos en localStorage o mostrar un mensaje de éxito
+
+      // Restablecer el formulario
+      document.getElementById("formPerfil").reset();
+    }
+
+    // Obtener el formulario por su ID
+    const formPerfil = document.getElementById("formPerfil");
+
+    // Agregar el evento "submit" al formulario
+    formPerfil.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>

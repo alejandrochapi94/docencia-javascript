@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    // Archivo: script.js
+    fetch('datos.json')
+    .then(response => response.json())
+    .then(persona => {
+        let parrafo = document.createElement('p'); // 1. Crear un elemento <p>
+        parrafo.textContent = `Nombre: ${persona.nombre}, Edad: ${persona.edad}, Ciudad: ${persona.ciudad}`; // 2. Agregar contenido al párrafo
+        document.body.appendChild(parrafo); // 3. Agregar el párrafo a la página
+    });
+
+
+    </script>
+</body>
+</html>

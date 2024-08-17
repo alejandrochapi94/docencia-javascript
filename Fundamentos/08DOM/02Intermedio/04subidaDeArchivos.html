@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subir Archivos</title>
+  
+</head>
+<body>
+
+  <h2>Subir Archivos</h2>
+
+  <form id="formSubida" onsubmit="return false;">
+    <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx"><br><br>
+
+    <input type="submit" value="Subir Archivo">
+  </form>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const archivo = document.getElementById("archivo").files[0];
+
+      // Mostrar la información del archivo en la consola (para debugging)
+      console.log("Nombre del archivo:", archivo.name);
+      console.log("Tamaño del archivo:", archivo.size);
+      console.log("Tipo de archivo:", archivo.type);
+
+      // Puedes realizar más acciones con el archivo aquí,
+      // como mostrarlo en una vista previa, enviarlo a un servidor, etc.
+
+      // Restablecer el formulario
+      document.getElementById("formSubida").reset();
+    }
+
+    // Obtener el formulario por su ID
+    const formSubida = document.getElementById("formSubida");
+
+    // Agregar el evento "submit" al formulario
+    formSubida.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>

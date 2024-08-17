@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reserva de Eventos</title>
+  
+</head>
+<body>
+
+  <h2>Reservar Evento</h2>
+
+  <form id="formReserva" onsubmit="return false;">
+    <label for="fecha">Fecha del evento:</label><br>
+    <input type="date" id="fecha" name="fecha" required><br>
+
+    <label for="hora">Hora del evento:</label><br>
+    <input type="time" id="hora" name="hora" required><br>
+
+    <label for="fechahora">Fecha y hora del evento:</label><br>
+    <input type="datetime-local" id="fechahora" name="fechahora" required><br>
+
+    <input type="submit" value="Reservar">
+  </form>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const fecha = document.getElementById("fecha").value;
+      const hora = document.getElementById("hora").value;
+      const fechahora = document.getElementById("fechahora").value;
+
+      // Mostrar los datos en la consola (para debugging)
+      console.log("Fecha:", fecha);
+      console.log("Hora:", hora);
+      console.log("Fecha y hora:", fechahora);
+
+      // Puedes realizar más acciones con los datos aquí, 
+      // como guardarlos en localStorage o mostrar un mensaje de éxito
+
+      // Restablecer el formulario
+      document.getElementById("formReserva").reset();
+    }
+
+    // Obtener el formulario por su ID
+    const formReserva = document.getElementById("formReserva");
+
+    // Agregar el evento "submit" al formulario
+    formReserva.addEventListener("submit", handleSubmit);
+  </script>
+</body>
+</html>

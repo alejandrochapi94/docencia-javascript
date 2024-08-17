@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <ul id="lista-usuarios"></ul>
+    <script>
+        // Archivo: script.js<ul 
+    fetch('usuarios.json')
+    .then(response => response.json())
+    .then(usuarios => {
+        let lista = document.getElementById('lista-usuarios'); // 1. Obtener la lista HTML
+        usuarios.forEach(usuario => { // 2. Iterar sobre cada usuario
+        let item = document.createElement('li'); // 3. Crear un elemento <li>
+        item.textContent = `${usuario.nombre} (${usuario.edad})`; // 4. Agregar contenido al <li>
+        lista.appendChild(item); // 5. Agregar el <li> a la lista
+        });
+    });
+        
+    </script>
+</body>
+</html>

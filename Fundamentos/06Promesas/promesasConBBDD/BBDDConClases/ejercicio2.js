@@ -1,3 +1,29 @@
+/*
+Instrucciones:
+Implementa dos clases en Node.js que se relacionan a través de herencia para 
+manejar la conexión a una base de datos MySQL e insertar usuarios.
+Database: Clase base que define los métodos para conectar y cerrar la conexión a 
+la base de datos.
+UserDatabase: Clase derivada que extiende Database y agrega un método para 
+insertar un usuario en una tabla especificada.
+Requisitos:
+La clase Database debe tener los siguientes métodos:
+connect(): Conecta a la base de datos utilizando las credenciales proporcionadas. 
+Debe manejar los errores que puedan ocurrir durante la conexión.
+close(): Cierra la conexión a la base de datos. Debe manejar los errores que 
+puedan ocurrir durante el cierre.
+La clase UserDatabase debe tener el siguiente método:
+insertarUsuario(nombre, correo): Inserta un usuario en una tabla especificada, 
+utilizando los parámetros nombre y correo. Debe verificar si existe una conexión 
+activa a la base de datos, conectarse si es necesario y ejecutar la consulta SQL. 
+Debe manejar los errores que puedan ocurrir durante la inserción.
+Crea una función main() que llame al método insertarUsuario() para insertar 
+un usuario con el nombre Alejandro11 y el correo alejandro1@example.com.
+Asegúrate de que la conexión a la base de datos se cierre correctamente después 
+de la inserción.
+*/
+
+
 const mysql = require('mysql2/promise');
 
 // Clase base que maneja la conexión a la base de datos

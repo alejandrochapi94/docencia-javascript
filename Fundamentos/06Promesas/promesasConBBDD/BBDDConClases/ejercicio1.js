@@ -38,6 +38,15 @@ class Database {
       throw err; // Lanzamos el error para que pueda ser manejado externamente si es necesario
     }
   }
+  async consultar(sql, params = []) {
+    try {
+      const [result] = await this.connection.execute(sql, params);
+      return result;
+    } catch (err) {
+      console.error('Error al realizar la consulta:', err);
+      throw err;
+    }
+  }
 
   // Método para insertar datos en la base de datos
   async insertarDatos(nombre, correo) {
