@@ -2,6 +2,27 @@
 <html>
 <head>
   <title>Formulario de Contacto</title>
+  
+</head>
+<body>
+
+  <h2>Contáctanos</h2>
+
+  <form id="formContacto">
+  <form id="formContacto" onsubmit="return false;"> 
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br><br>
+    <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea><br><br>
+
+    <input type="submit" value="Enviar">
+  </form>
+
   <script>
     function handleSubmit(event) {
       event.preventDefault();
@@ -28,25 +49,6 @@
     // Agregar el evento "submit" al formulario
     formContacto.addEventListener("submit", handleSubmit);
   </script>
-</head>
-<body>
-
-  <h2>Contáctanos</h2>
-
-  <form id="formContacto">
-  <form id="formContacto" onsubmit="return false;"> 
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br>
-
-    <label for="mensaje">Mensaje:</label><br>
-    <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br><br>
-    <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea><br><br>
-
-    <input type="submit" value="Enviar">
-  </form>
 
 </body>
 </html>
